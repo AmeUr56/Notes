@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+        <h1>Persons</h1>
+        <ul>
+            {% for person in people %}
+            <li>{{ person }} - <a href="{{ url_for('details',pid=person.pid) }}">Details</a> - <a href="{{ url_for('delete',pid=person.pid) }}">Delete</a></li>
+            {% endfor %}
+        </ul><br><br>
+        <h3><a href="{{ url_for('clear') }}">Clear Database</a></h3>
+
+        <h1>Add/Del Person</h1>
+        <form method="POST" action = '{{ url_for("transactions") }}'>
+            <label for="name">name *</label>
+            <input required type="text" name="name"><br>
+            <label for="age">Age</label>
+            <input type="text" name="age"><br>
+            <label for="salary">Salary</label>
+            <input type="text" name="salary"><br>
+            <input type="submit" name='action' value='add'>
+            <input type="submit" name='action' value='del'>
+        </form>
+        
+
+{% endblock %}
+
+{% block URLHome %}{% endblock %}

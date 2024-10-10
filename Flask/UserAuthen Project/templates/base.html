@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Modern Home Page{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/toast.css') }}">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/{% block style %}home{% endblock %}.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="{{ url_for('home') }}" class='Title'>Erif</a></div>
+            <ul class="nav-links">
+                <li><a href="about">About</a></li>
+                <li><a href="{{ url_for('users')}}">Users</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    {% block main %}
+        <section class="hero">
+            <h1>Welcome to <b>Erif</b></h1>
+            <p>Discover amazing content and services that will enhance your life.</p>
+            {% for route in routes %}
+            <a href="{{ url_for(route) }}" class="cta-button">{{ route }}</a>
+            <br><br><br>
+            {% endfor %}
+            
+        </section>
+    {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+    </footer>
+</body>
+    <!-- Toast Notification -->
+    <div id="toast"></div>
+
+    <!-- Hidden container to pass flash messages to JavaScript -->
+    <div id="flash-messages-data" style="display:none;">
+        {{ get_flashed_messages(with_categories=true) | tojson }}
+    </div>
+
+    <!-- Include JavaScript file -->
+    <script src="{{ url_for('static', filename='js/toast.js') }}"></script>
+</html>

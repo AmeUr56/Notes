@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block title %}Login{% endblock %}
+{% block style %}register{% endblock %}
+
+{% block main %}
+<section class="register-form">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.email.label|title_ }}<br>
+            {{ form.email() }}<br>
+        </div>
+        <div class="form-group">
+            {{ form.password.label|title_ }}<br>
+            {{ form.password() }}<br>
+        </div>
+        <div>
+            <!-- reCAPTCHA Field -->
+            {{ form.recaptcha() }}
+        </div>
+        
+        <button type="submit" class="cta-button">{{ form.submit.label }}</button>
+    </form>
+    <div class="login-redirect">
+        <p>Dont have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+    </div>
+</section>
+{% endblock %}

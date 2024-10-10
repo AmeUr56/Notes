@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block title %}Register{% endblock %}
+{% block style %}register{% endblock %}
+
+{% block main %}
+<section class="register-form">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <h1>Register for an Account</h1>
+    <form action="/register" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.username.label|title_ }}<br>
+            {{ form.username() }}<br>
+        </div>
+        <div class="form-group">
+            {{ form.email.label|title_ }}<br>
+            {{ form.email() }}<br>
+        </div>
+        <div class="form-group">
+            {{ form.password.label|title_ }}<br>
+            {{ form.password() }}<br>
+        </div>
+        <div class="form-group">
+            {{ form.confirm_password.label|title_ }}<br>
+            {{ form.confirm_password() }}<br>
+        </div>
+        <div>
+            <!-- reCAPTCHA Field -->
+            {{ form.recaptcha() }}
+        </div>
+        <button type="submit" class="cta-button">{{ form.submit.label }}</button>
+    </form>
+    <div class="login-redirect">
+        <p>Already have an account? <a href="{{ url_for('login') }}">Log in here</a>.</p>
+    </div>
+</section>
+
+{% endblock %}

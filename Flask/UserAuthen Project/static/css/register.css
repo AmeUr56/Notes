@@ -1,0 +1,66 @@
+.register-form {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-form h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #f4a261;
+}
+
+.cta-button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.login-redirect {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-redirect p {
+    font-size: 0.9em;
+    color: #333;
+}
+
+.login-redirect a {
+    color: #3498db;  /* Set link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-redirect a:hover {
+    text-decoration: underline;  /* Add underline on hover */
+}

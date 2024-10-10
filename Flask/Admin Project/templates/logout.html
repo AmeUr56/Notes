@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Logout{% endblock %}
+
+{% block main %}
+<form action="/logout" method="POST">
+    <button type="submit" class="cta-button">Logout</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,4 @@
+SECRET_KEY = 'as48#%^8~+~09d8as8@)#@d4asd56@#^&*as45d)_#%49)((a'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///./usersdb.db'
+RECAPTCHA_PUBLIC_KEY = '6LexglUqAAAAANqL0iw0a9sz1z9ENaRRwm3hXp8g'
+RECAPTCHA_PRIVATE_KEY = '6LexglUqAAAAAMnDkXWXA3oSWQuwfTRe2iMkWr4x'

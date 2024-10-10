@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title%}Text to Csv{% endblock%}
+{% block content%}
+<h1>Text to Csv</h1>
+<form method='POST' action="{{ url_for('convert') }}" enctype='multipart/form-data'>
+    <input type='file' name='file' accept='text/plain'>
+    <input type='submit' value='transform'>
+</form>
+{% endblock %}
