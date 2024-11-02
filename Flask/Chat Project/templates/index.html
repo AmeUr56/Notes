@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+    </head>
+    <body style="text-align:center; font-family:Arial, serif; font-size:14pt">
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var socket = io.connect("http://192.168.1.35:5000")
+                socket.on('connect', function() {
+                    socket.send("User connected");
+                });
+                socket.on('message', function(data) {
+                    $('#messages').append($('<p>').text(data));
+                    });
+
+                    $('#sendBtn').on('click', function() {
+                        socket.send($('#username').val() + ': ' + $('#message').val());
+                    $("#message").val('');
+                });
+            })
+        </script>
+        <div id="messages">
+
+        </div>
+        <div>
+            <input type="text" id="username" placeholder="Username">
+            <input type="text" id="message" placeholder="Message">
+            <button id="sendBtn">Send</button>
+        </div>
+    </body>
+</html>
